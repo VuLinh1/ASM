@@ -53,4 +53,7 @@ public class AccountDAO {
         }
         return null;
     }
+    public static void main(String[] args) {
+        System.out.println(new AccountDAO().authenticate("linhnvhe170399@fpt.edu.vn","minhlinh"));
+    }
 }

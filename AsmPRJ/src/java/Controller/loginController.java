@@ -5,6 +5,8 @@ package Controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import dao.AccountDAO;
+import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -72,7 +75,17 @@ public class loginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         AccountDAO accountDAO = new AccountDAO();
+        HttpSession session = request.getSession();
+        String username = request.getParameter("email");
+        String password = request.getParameter("password");
+        Account account = accountDAO.authenticate(username, password);
+        if(account == null){
+            request.setAttribute("msg", "login Fail email or pw wrong");
+            request.getRequestDispatcher("login").forward(request, response);
+        }else{
+            response.sendRedirect("home.jsp");
+        }
     }
 
     /**
