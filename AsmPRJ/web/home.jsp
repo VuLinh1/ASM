@@ -13,6 +13,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Home for web</h1>
+        <h1>GEEKFORBOOKS HOMEPAGE</h1>
     </body>
 </html>

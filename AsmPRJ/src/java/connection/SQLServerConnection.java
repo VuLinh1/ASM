@@ -8,7 +8,7 @@ import utils.Helper;
 
 /**
  *
- * @author AnhDT
+ * 
  */
 public class SQLServerConnection {
 
@@ -20,14 +20,14 @@ public class SQLServerConnection {
      * @return Connection
      */
     public static Connection getConnection() {
-        Properties properties = Helper.getPropertiesByFileName("const/const.properties");
+        Properties properties = Helper.getPropertiesByFileName("Const/const.properties");
         // Create a variable for the connection string.
         String connectionUrl = "jdbc:sqlserver://"+HOSTNAME+":"+PORT+";"
-                             + "databaseName="+properties.getProperty("databaseName") + ";encrypt=true;trustServerCertificate=true"; 
+                             + "databaseName="+properties.getProperty("database.name") + ";encrypt=true;trustServerCertificate=true"; 
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            return DriverManager.getConnection(connectionUrl, properties.getProperty("databaseUsername"), properties.getProperty("databasePassword"));
+            return DriverManager.getConnection(connectionUrl, properties.getProperty("database.username"), properties.getProperty("database.password"));
         }
         // Handle any errors that may have occurred.
         catch (ClassNotFoundException | SQLException e) {

@@ -18,7 +18,7 @@ import java.sql.SQLException;
  */
 public class AccountDAO {
 
-    public Account authenticate(String username, String password) {
+  public Account authenticate(String username, String password) {
 
         String sql = "Select "
                 + " a.accountId,"
