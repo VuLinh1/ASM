@@ -35,20 +35,21 @@
                 <div class="card card-4">
                     <div class="card-body">
                         <h2 class="title">Registration Form</h2>
-                        <form method="POST">
-
-
-
+                        <form action="sign-up" method="POST">
+                           
                             <div class="row row-space">
                                 <div class="col-2">
                                     <div class="input-group">
                                         <label class="label">Email</label>
-                                        <input class="input--style-4" type="email" name="email" required>
+                                        <input class="input--style-4" type="email" name="emailCreation" required>
+                                         <label class="label">Password</label>
+                                        <input class="input--style-4" type="password" name="passwordCreation" required>
+                                        <span>${requestScope.msg}</span>
                                     </div>
                                 </div>
 
                                 <div class="p-t-15">
-                                    <button class="btn btn--radius-2 btn--blue" type="submit">Get OTP</button>
+                                    <button class="btn btn--radius-2 btn--blue" type="submit">Sign-up</button>
                                 </div>
                         </form>
                     </div>

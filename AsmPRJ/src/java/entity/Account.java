@@ -18,6 +18,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Account {
+
     private int accountId;
     private String accountEmail;
     private String accountPassword;
