@@ -44,7 +44,7 @@
                                         <input class="input--style-4" type="email" name="emailCreation" required>
                                          <label class="label">Password</label>
                                         <input class="input--style-4" type="password" name="passwordCreation" required>
-                                        <span>${requestScope.msg}</span>
+                                        <div style="color: red">     <span>${sessionScope.msg}</span> </div>
                                     </div>
                                 </div>
 
