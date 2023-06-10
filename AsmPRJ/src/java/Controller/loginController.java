@@ -82,7 +82,7 @@ public class loginController extends HttpServlet {
         
         Account account = accountDAO.authenticate(username, password);
         if(account == null){
-            session.setAttribute("msg", "login Fail email or pw wrong");
+            request.setAttribute("msg", "login Fail email or pw wrong");
            
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }else{
