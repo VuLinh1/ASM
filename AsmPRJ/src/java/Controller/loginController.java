@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,6 +24,9 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet(urlPatterns = {"/login"})
 public class loginController extends HttpServlet {
 
+     private static final String REMEMBER_ME_COOKIE_USERNAME = "rememberMeUsername";
+    private static final String REMEMBER_ME_COOKIE_PASSWORD = "rememberMePasword";
+    private static final int REMEMBER_ME_COOKIE_MAX_AGE = 3600 * 24 * 30; // 30 days
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -61,6 +65,28 @@ public class loginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+         HttpSession session = request.getSession();
+        AccountDAO accountDAO = new AccountDAO();
+        Cookie[] cookies = request.getCookies();
+        String username = null;
+        String password = null;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals(REMEMBER_ME_COOKIE_USERNAME)) {
+                    username = cookie.getValue();
+                }
+                if (cookie.getName().equals(REMEMBER_ME_COOKIE_PASSWORD)) {
+                    password = cookie.getValue();
+                }
+            }
+            Account account = accountDAO.authenticate(username, password);
+            if (account != null) {
+                session.setAttribute("accountCur", account);
+                response.sendRedirect("home");
+                return;
+            } 
+        }
+
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
@@ -75,17 +101,41 @@ public class loginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         AccountDAO accountDAO = new AccountDAO();
+//         AccountDAO accountDAO = new AccountDAO();
+//        HttpSession session = request.getSession();
+//        String username = request.getParameter("email");
+//        String password = request.getParameter("password");
+//        
+//        Account account = accountDAO.authenticate(username, password);
+//        if(account == null){
+//            request.setAttribute("msg", "login Fail email or pw wrong");
+//           
+//            request.getRequestDispatcher("login.jsp").forward(request, response);
+//        }else{
+//            response.sendRedirect("home.jsp");
+//        }
+     AccountDAO accountDAO = new AccountDAO();
         HttpSession session = request.getSession();
+
         String username = request.getParameter("email");
         String password = request.getParameter("password");
-        
+        boolean isRemeberMe = request.getParameter("isRemeberMe") != null;
         Account account = accountDAO.authenticate(username, password);
-        if(account == null){
-            request.setAttribute("msg", "login Fail email or pw wrong");
-           
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }else{
+        if (account == null) {
+            request.setAttribute("msg", "Login Fail Username or Password invalid");
+            request.getRequestDispatcher("login").forward(request, response);
+        } else {
+             
+            session.setAttribute("accountCur", account);
+            if (isRemeberMe) {
+             
+                Cookie cookieUsername = new Cookie(REMEMBER_ME_COOKIE_USERNAME, username);
+                cookieUsername.setMaxAge(REMEMBER_ME_COOKIE_MAX_AGE);
+                Cookie cookiePassword = new Cookie(REMEMBER_ME_COOKIE_PASSWORD, password);
+                cookiePassword.setMaxAge(REMEMBER_ME_COOKIE_MAX_AGE);
+                response.addCookie(cookieUsername);
+                response.addCookie(cookiePassword);
+            }
             response.sendRedirect("home.jsp");
         }
     }
@@ -101,3 +151,4 @@ public class loginController extends HttpServlet {
     }// </editor-fold>
 
 }
+

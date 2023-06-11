@@ -47,8 +47,8 @@
       </div>
       <nav class="humberger__menu__nav mobile-menu">
         <ul>
-          <li class="active"><a href="./index.html">Home</a></li>
-          <li><a href="./shop-grid.html">Shop</a></li>
+            <li ><a href="home.jsp">Home</a></li>
+          <li class="active"><a href="shop.jsp">Shop</a></li>
           <li>
             <a href="#">Pages</a>
             <ul class="header__menu__dropdown">
@@ -71,76 +71,7 @@
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
-      <div class="header__top">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 col-md-6">
-              <div class="header__top__left">
-                <ul>
-                  <li><i class="fa fa-envelope"></i> vulinh@g.com</li>
-                  <li>Free Shipping for all Order of $99</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div class="header__top__right">
-                <div class="header__top__right__auth">
-                  <a href="#"><i class="fa fa-user"></i> Login</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="header__logo">
-              <a href="./index.html"
-                ><img
-                  src="img/logo.png"
-                  alt=""
-                  style="height: 100%; object-fit: cover"
-              /></a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <nav class="header__menu">
-              <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li>
-                  <a href="#">Pages</a>
-                  <ul class="header__menu__dropdown">
-                    <li><a href="./shop-details.html">Shop Details</a></li>
-                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                    <li><a href="./checkout.html">Check Out</a></li>
-                  </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="col-lg-3">
-            <div class="header__cart">
-              <ul>
-                <li>
-                  <a href="#"
-                    ><i class="fa fa-shopping-bag"></i> <span>3</span></a
-                  >
-                </li>
-              </ul>
-              <div class="header__cart__price">item: <span>$150.00</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="humberger__open">
-          <i class="fa fa-bars"></i>
-        </div>
-      </div>
-    </header>
+      <%@include file="Component/header-infor.jsp" %>
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
@@ -162,10 +93,7 @@
             <div class="hero__search">
               <div class="hero__search__form">
                 <form action="#">
-                  <div class="hero__search__categories">
-                    All Categories
-                    <span class="arrow_carrot-down"></span>
-                  </div>
+                  
                   <input type="text" placeholder="What do yo u need?" />
                   <button type="submit" class="site-btn">SEARCH</button>
                 </form>
@@ -211,18 +139,10 @@
           <div class="col-lg-3 col-md-5">
             <div class="sidebar">
               <div class="sidebar__item">
-                <h4>Department</h4>
+                <h4>Author</h4>
                 <ul>
-                  <li><a href="#">Fresh Meat</a></li>
-                  <li><a href="#">Vegetables</a></li>
-                  <li><a href="#">Fruit & Nut Gifts</a></li>
-                  <li><a href="#">Fresh Berries</a></li>
-                  <li><a href="#">Ocean Foods</a></li>
-                  <li><a href="#">Butter & Eggs</a></li>
-                  <li><a href="#">Fastfood</a></li>
-                  <li><a href="#">Fresh Onion</a></li>
-                  <li><a href="#">Papayaya & Crisps</a></li>
-                  <li><a href="#">Oatmeal</a></li>
+                  <li><a href="#"> William Shakespeare</a></li>
+                 <li><a href="#"> J. K. Rowling</a></li>
                 </ul>
               </div>
               <div class="sidebar__item">
@@ -253,70 +173,15 @@
                   </div>
                 </div>
               </div>
-              <div class="sidebar__item sidebar__item__color--option">
-                <h4>Colors</h4>
-                <div class="sidebar__item__color sidebar__item__color--white">
-                  <label for="white">
-                    White
-                    <input type="radio" id="white" />
-                  </label>
-                </div>
-                <div class="sidebar__item__color sidebar__item__color--gray">
-                  <label for="gray">
-                    Gray
-                    <input type="radio" id="gray" />
-                  </label>
-                </div>
-                <div class="sidebar__item__color sidebar__item__color--red">
-                  <label for="red">
-                    Red
-                    <input type="radio" id="red" />
-                  </label>
-                </div>
-                <div class="sidebar__item__color sidebar__item__color--black">
-                  <label for="black">
-                    Black
-                    <input type="radio" id="black" />
-                  </label>
-                </div>
-                <div class="sidebar__item__color sidebar__item__color--blue">
-                  <label for="blue">
-                    Blue
-                    <input type="radio" id="blue" />
-                  </label>
-                </div>
-                <div class="sidebar__item__color sidebar__item__color--green">
-                  <label for="green">
-                    Green
-                    <input type="radio" id="green" />
-                  </label>
-                </div>
-              </div>
+              
               <div class="sidebar__item">
-                <h4>Popular Size</h4>
+                <h4>Popular Books of all times</h4>
                 <div class="sidebar__item__size">
                   <label for="large">
-                    Large
+                    Harry Potter
                     <input type="radio" id="large" />
                   </label>
-                </div>
-                <div class="sidebar__item__size">
-                  <label for="medium">
-                    Medium
-                    <input type="radio" id="medium" />
-                  </label>
-                </div>
-                <div class="sidebar__item__size">
-                  <label for="small">
-                    Small
-                    <input type="radio" id="small" />
-                  </label>
-                </div>
-                <div class="sidebar__item__size">
-                  <label for="tiny">
-                    Tiny
-                    <input type="radio" id="tiny" />
-                  </label>
+             
                 </div>
               </div>
               <div class="sidebar__item">
@@ -333,24 +198,7 @@
                           <span>$30.00</span>
                         </div>
                       </a>
-                      <a href="#" class="latest-product__item">
-                        <div class="latest-product__item__pic">
-                          <img src="img/latest-product/lp-2.jpg" alt="" />
-                        </div>
-                        <div class="latest-product__item__text">
-                          <h6>Crab Pool Security</h6>
-                          <span>$30.00</span>
-                        </div>
-                      </a>
-                      <a href="#" class="latest-product__item">
-                        <div class="latest-product__item__pic">
-                          <img src="img/latest-product/lp-3.jpg" alt="" />
-                        </div>
-                        <div class="latest-product__item__text">
-                          <h6>Crab Pool Security</h6>
-                          <span>$30.00</span>
-                        </div>
-                      </a>
+                      
                     </div>
                     <div class="latest-prdouct__slider__item">
                       <a href="#" class="latest-product__item">
@@ -442,7 +290,7 @@
                       </div>
                       <div class="product__discount__item__text">
                         <span>Vegetables</span>
-                        <h5><a href="#">Vegetables’package</a></h5>
+                        <h5><a href="#">Vegetables package</a></h5>
                         <div class="product__item__price">
                           $30.00 <span>$36.00</span>
                         </div>
