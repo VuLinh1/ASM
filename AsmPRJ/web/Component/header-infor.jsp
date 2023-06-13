@@ -13,7 +13,7 @@
             <div class="col-lg-6 col-md-6">
               <div class="header__top__right">
                 <div class="header__top__right__auth">
-                  <a href="login.jsp"><i class="fa fa-user"></i> Logout</a>
+                  <a  type="button" href="log-out"><i class="fa fa-user"></i> Logout</a>
                 </div>
               </div>
             </div>
@@ -24,14 +24,14 @@
         <div class="row">
           <div class="col-lg-3">
             <div class="header__logo">
-              <a href="./index.html"><img src="img/logo.png" alt="" style="height: 100%; object-fit: cover;" /></a>
+              <a href="home"><img src="img/logo.png" alt="" style="height: 100%; object-fit: cover;" /></a>
             </div>
           </div>
           <div class="col-lg-6">
             <nav class="header__menu">
               <ul>
-                <li class="active"><a href="./home.jsp">Home</a></li>
-                <li><a href="./shop.jsp">Shop</a></li>
+                <li ><a href="home">Home</a></li>
+                <li  ><a href="shop">Shop</a></li>
                 <li>
                   <a href="#">Pages</a>
                   <ul class="header__menu__dropdown">

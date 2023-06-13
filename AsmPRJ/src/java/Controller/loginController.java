@@ -136,7 +136,7 @@ public class loginController extends HttpServlet {
                 response.addCookie(cookieUsername);
                 response.addCookie(cookiePassword);
             }
-            response.sendRedirect("home.jsp");
+            response.sendRedirect("home");
         }
     }
 

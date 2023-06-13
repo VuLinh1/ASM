@@ -52,8 +52,8 @@
       </div>
       <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="home.jsp">Home</a></li>
-          <li><a href="shop.jsp">Shop</a></li>
+            <li class="active"><a href="home">Home</a></li>
+          <li><a href="shop">Shop</a></li>
           <li>
             <a href="#">Pages</a>
             <ul class="header__menu__dropdown">
@@ -102,7 +102,7 @@
                   <i class="fa fa-phone"></i>
                 </div>
                 <div class="hero__search__phone__text">
-                  <h5>+8482203078</h5>
+                  <h5>+84 82828030703</h5>
                   <span>support 24/7 time</span>
                 </div>
               </div>

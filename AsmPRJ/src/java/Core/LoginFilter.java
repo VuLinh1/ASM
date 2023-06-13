@@ -108,7 +108,7 @@ public class LoginFilter implements Filter {
         HttpSession session = req.getSession();
         Account isLoginsuccess =  (Account) session.getAttribute("accountCur");
         if (isLoginsuccess != null) {
-            resp.sendRedirect("home.jsp");
+            resp.sendRedirect("home");
         } else {
             chain.doFilter(request, response);
         }
