@@ -30,7 +30,7 @@
           <div class="col-lg-6">
             <nav class="header__menu">
               <ul>
-                <li ><a href="home">Home</a></li>
+                  <li active><a href="home">Home</a></li>
                 <li  ><a href="shop">Shop</a></li>
                 <li>
                   <a href="#">Pages</a>

@@ -72,6 +72,7 @@
 
     <!-- Header Section Begin -->
       <%@include file="Component/header-infor.jsp" %>
+  
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
