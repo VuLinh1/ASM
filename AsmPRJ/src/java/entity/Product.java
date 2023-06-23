@@ -20,11 +20,12 @@ import lombok.ToString;
 public class Product {
     private int productId;
     private String productName;
+    private String AuthorName;
     private String productImg;
     private int productPrice;
     private String productDescription;
-    private int categoryId;
+    private int GenreId;
     private boolean productIsFeatured;
-    private boolean productSaleOff;
+    private boolean productIsSaleOff;
     private boolean productDeleted;
 }

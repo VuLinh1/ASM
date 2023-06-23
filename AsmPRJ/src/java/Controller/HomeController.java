@@ -4,13 +4,20 @@
  */
 package Controller;
 
+import dao.AccountDAO;
+import dao.ProductDao;
+import entity.Account;
+import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  *
@@ -18,6 +25,8 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "HomeController", urlPatterns = {"/home"})
 public class HomeController extends HttpServlet {
+    private static final String REMEMBER_ME_COOKIE_USERNAME = "rememberMeUsername";
+    private static final String REMEMBER_ME_COOKIE_PASSWORD = "rememberMePasword";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -57,6 +66,29 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+          ProductDao productDAO = new ProductDao();
+          
+         
+            Cookie[] cookies = request.getCookies();
+        String username = null;
+        String password = null;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals(REMEMBER_ME_COOKIE_USERNAME)) {
+                    username = cookie.getValue();
+                }
+                if (cookie.getName().equals(REMEMBER_ME_COOKIE_PASSWORD)) {
+                    password = cookie.getValue();
+                }
+            }
+            Account account = AccountDAO.authenticate(username, password);
+            if (account != null) {
+                session.setAttribute("accountCur", account);
+            } 
+        }
+         List<Product> lstProductFeatured = productDAO.getAllByFeatured();
+            request.setAttribute("lstProductFeatured", lstProductFeatured);
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 

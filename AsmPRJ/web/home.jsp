@@ -1,3 +1,6 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
@@ -132,10 +135,12 @@
         <div class="row featured__filter">
           <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
             <!-- for each in here  -->
+            
+               <c:forEach items="${requestScope.lstProductFeatured}" var="p">
             <div class="featured__item">
               <div
                 class="featured__item__pic set-bg"
-                data-setbg="img/featured/feature-1.jpg"
+                data-setbg="${p.productImg}"
               >
                 <ul class="featured__item__pic__hover">
                   <li>
@@ -144,10 +149,11 @@
                 </ul>
               </div>
               <div class="featured__item__text">
-                <h6><a href="#">Crab Pool Security</a></h6>
-                <h5>$30.00</h5>
+                  <h6><a href="#">${p.productName}</a></h6>
+                <h5>${p.productPrice}VND</h5>
               </div>
             </div>
+            </c:forEach>
             <!-- end foreach -->
           </div>
         </div>

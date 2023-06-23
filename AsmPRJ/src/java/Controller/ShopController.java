@@ -56,17 +56,7 @@ public class ShopController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    class Product {
-
-        String productImg;
-        String productName;
-
-        Product(String productImg, String productName) {
-            this.productImg = productImg;
-            this.productName = productName;
-        }
-    }
-
+   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

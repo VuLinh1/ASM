@@ -19,7 +19,7 @@ import java.sql.Statement;
  */
 public class AccountDAO {
 
-    public Account authenticate(String username, String password) {
+    public static Account authenticate(String username, String password) {
 
         String sql = "Select "
                 + " a.accountId,"
