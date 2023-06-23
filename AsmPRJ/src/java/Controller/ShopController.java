@@ -11,6 +11,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -36,7 +38,7 @@ public class ShopController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ShopController</title>");            
+            out.println("<title>Servlet ShopController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ShopController at " + request.getContextPath() + "</h1>");
@@ -54,10 +56,22 @@ public class ShopController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    class Product {
+
+        String productImg;
+        String productName;
+
+        Product(String productImg, String productName) {
+            this.productImg = productImg;
+            this.productName = productName;
+        }
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      request.getRequestDispatcher("shop.jsp").forward(request, response);
+     
+        request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 
     /**

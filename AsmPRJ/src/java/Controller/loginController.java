@@ -122,7 +122,7 @@ public class loginController extends HttpServlet {
         boolean isRemeberMe = request.getParameter("isRemeberMe") != null;
         Account account = accountDAO.authenticate(username, password);
         if (account == null) {
-            request.setAttribute("msg", "Login Fail Username or Password invalid");
+          
             request.getRequestDispatcher("login").forward(request, response);
         } else {
              
