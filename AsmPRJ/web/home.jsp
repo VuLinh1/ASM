@@ -136,24 +136,25 @@
           <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
             <!-- for each in here  -->
             
-               <c:forEach items="${requestScope.lstProductFeatured}" var="p">
-            <div class="featured__item">
-              <div
-                class="featured__item__pic set-bg"
-                data-setbg="${p.productImg}"
-              >
-                <ul class="featured__item__pic__hover">
-                  <li>
-                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                  </li>
-                </ul>
-              </div>
-              <div class="featured__item__text">
-                  <h6><a href="#">${p.productName}</a></h6>
-                <h5>${p.productPrice}VND</h5>
-              </div>
-            </div>
-            </c:forEach>
+           
+            
+            <c:forEach items="${requestScope.lstProductFeatured}" var="p">
+  <div class="featured__item">
+    <div class="featured__item__pic set-bg" data-setbg="${p.productImg}">
+      <ul class="featured__item__pic__hover">
+        <li>
+          <a href="#"><i class="fa fa-shopping-cart"></i></a>
+        </li>
+      </ul>
+    </div>
+    <div class="featured__item__text">
+        <h6><a href="#">${p.productName}</a></h6>
+        <a>${p.authorName}</a> 
+       <h5>${p.productPrice} VND</h5>
+    </div>
+  </div>
+</c:forEach>
+            
             <!-- end foreach -->
           </div>
         </div>
