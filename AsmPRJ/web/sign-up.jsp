@@ -36,15 +36,19 @@
                     <div class="card-body">
                         <h2 class="title">Registration Form</h2>
                         <form action="sign-up" method="POST">
-                           
+
                             <div class="row row-space">
                                 <div class="col-2">
                                     <div class="input-group">
                                         <label class="label">Email</label>
                                         <input class="input--style-4" type="email" name="emailCreation" required>
-                                         <label class="label">Password</label>
-                                        <input class="input--style-4" type="password" name="passwordCreation" required>
                                         <div style="color: red">     <span>${sessionScope.msg}</span> </div>
+                                        <label class="label">Password</label>
+                                        <input class="input--style-4" type="password" name="passwordCreation" required>
+                                        <label class="label">Confirm-Password</label>
+                                        <input class="input--style-4" type="password" name="passwordConfirm" required>
+                                        <div style="color: red">     <span>${sessionScope.msg1}</span> </div>
+
                                     </div>
                                 </div>
 

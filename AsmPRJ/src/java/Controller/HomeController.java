@@ -67,10 +67,8 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-          ProductDao productDAO = new ProductDao();
-          
-         
-            Cookie[] cookies = request.getCookies();
+          ProductDao productDAO = new ProductDao(); 
+    Cookie[] cookies = request.getCookies();
         String username = null;
         String password = null;
         if (cookies != null) {
@@ -82,14 +80,21 @@ public class HomeController extends HttpServlet {
                     password = cookie.getValue();
                 }
             }
-            Account account = AccountDAO.authenticate(username, password);
+           Account account = AccountDAO.authenticate(username, password);
             if (account != null) {
+               
                 session.setAttribute("accountCur", account);
-            } 
+            }
         }
-         List<Product> lstProductFeatured = productDAO.getAllByFeatured();
+        if(session.getAttribute("accountCur")!= null){
+             List<Product> lstProductFeatured = productDAO.getAllByFeatured();
             request.setAttribute("lstProductFeatured", lstProductFeatured);
         request.getRequestDispatcher("home.jsp").forward(request, response);
+        }else{
+            response.sendRedirect("login.jsp");
+        }
+                
+        
     }
 
     /**

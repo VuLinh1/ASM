@@ -848,7 +848,22 @@ ol {
 .featured__controls ul li:last-child {
 	margin-right: 0;
 }
+.product-card{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+    flex-direction: column !important;
+    padding-top: 1.75rem !important;
+    padding-bottom: 1.75rem !important;
+    display: flex !important;
+}
+.product-card__img{
+        height: 300px !important ;
+    aspect-ratio: 3/4 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background-position: center center !important;
+    background-size: contain !important;
 
+}
 .featured__item {
 	margin-bottom: 50px;
 }

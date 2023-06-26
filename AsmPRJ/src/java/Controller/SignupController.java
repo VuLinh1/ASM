@@ -65,17 +65,24 @@ public class SignupController extends HttpServlet {
             throws ServletException, IOException {
         String email = request.getParameter("emailCreation");
         String password = request.getParameter("passwordCreation");
+        String confirmpassword = request.getParameter("passwordConfirm");
         HttpSession session = request.getSession();
-        if (AccountDAO.getOneByEmail(email) == null) {
-            Account acc = Account.builder().accountPassword(password).accountEmail(email).build();
-            int accountId = AccountDAO.register(acc);
-            if (accountId > 0) {
-                session.setAttribute("msg", "Sign up successfull");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+        if (password.equals(confirmpassword)) {
+            if (AccountDAO.getOneByEmail(email) == null) {
+                Account acc = Account.builder().accountPassword(password).accountEmail(email).build();
+                int accountId = AccountDAO.register(acc);
+                if (accountId > 0) {        
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
+                }
+            } else {
+                  session.removeAttribute("msg1");
+                session.setAttribute("msg", "Email already exist");
+                request.getRequestDispatcher("sign-up.jsp").forward(request, response);
             }
-        } else {
-            session.setAttribute("msg", "Email already exist");
-            request.getRequestDispatcher("sign-up.jsp").forward(request, response);
+        }else{
+            session.removeAttribute("msg");
+             session.setAttribute("msg1", "Confirm failed");
+               request.getRequestDispatcher("sign-up.jsp").forward(request, response);
         }
     }
 

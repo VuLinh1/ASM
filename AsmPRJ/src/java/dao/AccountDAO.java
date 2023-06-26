@@ -50,8 +50,8 @@ public class AccountDAO {
                 return a;
             }
         } catch (SQLException e) {
-            System.out.println("sdasd");
-            e.printStackTrace(System.out);
+            
+                    
         }
         return null;
     }

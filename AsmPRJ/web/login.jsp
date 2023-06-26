@@ -54,6 +54,7 @@
                             <span class="symbol-input100">
                                 <i class="fa fa-lock" aria-hidden="true"></i>
                             </span>
+                            <small id="emailHelp" class="form-text text-muted">${requestScope.error}</small>
                         </div>
 
                         <div class="container-login100-form-btn">

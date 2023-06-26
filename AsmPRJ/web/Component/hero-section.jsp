@@ -8,7 +8,7 @@
                 <span>Genre</span>
               </div>
               <ul>
-                <li><a href="#">Horror</a></li>
+                <li><a href="#">Action & Adventure</a></li>
               </ul>
             </div>
           </div>
