@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css" />
         <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css" />
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
-        <link rel="stylesheet" href="css/style.css" type="text/css" />
+        <link rel="stylesheet" href="css/style.css?v=6" type="text/css" />
     </head>
 
     <body>
@@ -135,11 +135,7 @@
                 <div class="row featured__filter">
 
                     <!-- for each in here  -->
-
-
-
                     <c:forEach items="${requestScope.lstProductFeatured}" var="p">
-
                         <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                             <div class="featured__item product-card">
                                 <div class="featured__item__pic set-bg product-card__img" data-setbg="${p.productImg}">
@@ -157,7 +153,6 @@
                             </div>
                         </div>
                     </c:forEach>
-
                     <!-- end foreach -->
 
                 </div>

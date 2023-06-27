@@ -4,6 +4,10 @@
  */
 package Controller;
 
+import dao.GenreDAO;
+import dao.ProductDao;
+import entity.Genre;
+import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -60,7 +64,12 @@ public class ShopController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     
+       ProductDao productDAO = new ProductDao();
+        GenreDAO genreDAO = new GenreDAO();
+        List<Genre> lstGenre = genreDAO.getAllbyGenre() ;
+        List<Product> lstProductSaleOff = productDAO.getAllBySaleOff();
+        request.setAttribute("lstGenre", lstGenre);
+         request.setAttribute("lstProductSaleOff", lstProductSaleOff);
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 

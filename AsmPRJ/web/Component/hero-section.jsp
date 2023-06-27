@@ -1,3 +1,5 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <section class="hero">
       <div class="container">
         <div class="row">
@@ -7,9 +9,11 @@
                 <i class="fa fa-bars"></i>
                 <span>Genre</span>
               </div>
+                 <c:forEach items="${requestScope.lstGenre}" var="g">
               <ul>
-                <li><a href="#">Action & Adventure</a></li>
+                <li><a href="#">${g.genreName}</a></li>
               </ul>
+                     </c:forEach> 
             </div>
           </div>
           <div class="col-lg-9">

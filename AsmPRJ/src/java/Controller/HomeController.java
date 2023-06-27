@@ -19,6 +19,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.List;
 
+import jakarta.servlet.ServletException;
+import java.io.IOException;
+import java.sql.SQLException;
+
 /**
  *
  * @author ADMIN
@@ -87,9 +91,13 @@ public class HomeController extends HttpServlet {
             }
         }
         if(session.getAttribute("accountCur")!= null){
-             List<Product> lstProductFeatured = productDAO.getAllByFeatured();
+              try {
+            List<Product> lstProductFeatured = productDAO.getAllByFeatured();
             request.setAttribute("lstProductFeatured", lstProductFeatured);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+        } catch (Exception e) {
+            // Handle the SQLException appropriately
+        }
         }else{
             response.sendRedirect("login.jsp");
         }
