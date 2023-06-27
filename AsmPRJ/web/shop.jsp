@@ -199,11 +199,8 @@
                         </div>
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
+                                    <c:forEach items="${requestScope.lstProductSaleOff}" var="p">
                                 <div class="col-lg-4">
-                                <c:forEach items="${requestScope.lstProductSaleOff}" var="p">
-
-
-                                    
                                         <div class="product__discount__item product-card">
                                             <div
                                                 class="product__discount__item__pic set-bg product-card__img"
@@ -225,9 +222,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                   
-                                </c:forEach>
-                                     </div>
+                                </div>
+                                    </c:forEach>
                             </div>
                         </div>
 
