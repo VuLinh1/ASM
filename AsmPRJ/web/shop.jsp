@@ -105,13 +105,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
-                        <div class="sidebar__item">
-                            <h4> Iconic Author</h4>
-                            <ul>
-                                <li><a href="#"> William Shakespeare</a></li>
-                                <li><a href="#"> J. K. Rowling</a></li>
-                            </ul>
-                        </div>
+
                         <div class="sidebar__item">
                             <h4>Price</h4>
                             <div class="price-range-wrap">
@@ -143,52 +137,12 @@
 
 
                         <div class="sidebar__item">
-                            <div class="latest-product__text">
-                                <h4>Latest Books</h4>
-                                <div class="latest-product__slider owl-carousel">
-                                    <div class="latest-prdouct__slider__item">
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-1.jpg" alt="" />
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
 
-                                    </div>
-                                    <div class="latest-prdouct__slider__item">
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-1.jpg" alt="" />
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-2.jpg" alt="" />
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-3.jpg" alt="" />
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+    <h2 style="font-family: 'Times New Roman', serif; font-size: 28px; text-align: center; color: #6b584d; letter-spacing: 2px;">
+    Embark on an <span style="color: #a9978e;">Endless Journey</span><br>
+    of <span style="color: #a9978e;">Imagination</span> and <span style="color: #a9978e;">Knowledge</span><br>
+    with Our <span style="color: #a9978e;">Vast Library</span> of Captivating <span style="color: #a9978e;">Books</span>!
+</h2>
                         </div>
                     </div>
                 </div>
@@ -199,8 +153,8 @@
                         </div>
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
-                                    <c:forEach items="${requestScope.lstProductSaleOff}" var="p">
-                                <div class="col-lg-4">
+                                <c:forEach items="${requestScope.lstProductSaleOff}" var="p">
+                                    <div class="col-lg-4">
                                         <div class="product__discount__item product-card">
                                             <div
                                                 class="product__discount__item__pic set-bg product-card__img"
@@ -222,8 +176,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                </div>
-                                    </c:forEach>
+                                    </div>
+                                </c:forEach>
                             </div>
                         </div>
 
@@ -556,85 +510,7 @@
 <!-- Product Section End -->
 
 <!-- Footer Section Begin -->
-<footer class="footer spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="footer__about">
-                    <div class="footer__about__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt="" /></a>
-                    </div>
-                    <ul>
-                        <li>Address: 60-49 Road 11378 New York</li>
-                        <li>Phone: +65 11.188.888</li>
-                        <li>Email: hello@colorlib.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                <div class="footer__widget">
-                    <h6>Useful Links</h6>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">About Our Shop</a></li>
-                        <li><a href="#">Secure Shopping</a></li>
-                        <li><a href="#">Delivery infomation</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Our Sitemap</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href="#">Who We Are</a></li>
-                        <li><a href="#">Our Services</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Innovation</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <div class="footer__widget">
-                    <h6>Join Our Newsletter Now</h6>
-                    <p>
-                        Get E-mail updates about our latest shop and special offers.
-                    </p>
-                    <form action="#">
-                        <input type="text" placeholder="Enter your mail" />
-                        <button type="submit" class="site-btn">Subscribe</button>
-                    </form>
-                    <div class="footer__widget__social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="footer__copyright">
-                    <div class="footer__copyright__text">
-                        <p>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            All rights reserved | This template is made with
-                            <i class="fa fa-heart" aria-hidden="true"></i> by
-                            <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                    <div class="footer__copyright__payment">
-                        <img src="img/payment-item.png" alt="" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+<%@include file="Component/Footer-infor.jsp" %>
 <!-- Footer Section End -->
 
 <!-- Js Plugins -->
