@@ -213,31 +213,33 @@
                     </div>
                 </div>
                 <div class="row">
+                      <c:forEach items="${requestScope.lstProduct}" var="p">
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div
                                 class="product__item__pic set-bg"
-                                data-setbg="img/product/product-1.jpg"
+                                data-setbg="${p.productImg}"
+                                
                                 >
+                                 <a href="product-detail?productId=${p.productId}">
+                                            <div class="product-action">
+                                            </div>
+                                        </a>
                                 <ul class="product__item__pic__hover">
-                                    <li>
-                                        <a href="#"><i class="fa fa-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-retweet"></i></a>
-                                    </li>
                                     <li>
                                         <a href="#"><i class="fa fa-shopping-cart"></i></a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="#">Crab Pool Security</a></h6>
-                                <h5>$30.00</h5>
+                                <h6><a href="#">${p.productName}</a></h6>
+                                <a>${p.authorName}</a> 
+                                <h5>${p.productPrice}</h5>
                             </div>
                         </div>
                     </div>
                 </div>
+                      </c:forEach>
                 <div class="product__pagination">
                    <nav>
                                 <ul class="pagination justify-content-center">

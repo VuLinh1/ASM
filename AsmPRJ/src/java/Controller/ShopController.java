@@ -62,57 +62,55 @@ public class ShopController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-       ProductDao productDAO = new ProductDao();
+        ProductDao productDAO = new ProductDao();
         GenreDAO genreDAO = new GenreDAO();
-        List<Genre> lstGenre = genreDAO.getAllbyGenre() ;
+        List<Genre> lstGenre = genreDAO.getAllbyGenre();
         List<Product> lstProductSaleOff = productDAO.getAllBySaleOff();
         List<Integer> lstPage = new ArrayList<>();
         String href;
-         int size = 0;
+        int size = 0;
         int genreId = request.getParameter("genreId") == null ? 0 : Integer.parseInt(request.getParameter("genreId"));
         String searchValue = request.getParameter("searchValue");
-         int numberProductPerPage = 9;
-           int pageCur = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
-            List<Product> lstProduct;
-         String priceFrom = request.getParameter("priceFrom") == null? "100000" : request.getParameter("priceFrom");
-        String priceTo = request.getParameter("priceTo")  == null? "1000000" : request.getParameter("priceTo");
-         if (genreId != 0) {
+        int numberProductPerPage = 9;
+        int pageCur = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
+        List<Product> lstProduct;
+        String priceFrom = request.getParameter("priceFrom") == null ? "100000" : request.getParameter("priceFrom");
+        String priceTo = request.getParameter("priceTo") == null ? "1000000" : request.getParameter("priceTo");
+        if (genreId != 0) {
             lstProduct = productDAO.getListProductPerPageByCategoryId(numberProductPerPage, pageCur, genreId, priceFrom, priceTo);
             //href = "shop?categoryId=" + categoryId + "&";
-            href = priceFrom.equals("0") ? "shop?genreId=" + genreId + "&" : "shop?genreId=" + genreId +"&priceFrom=" + priceFrom + "&priceTo=" + priceTo + "&";
-              size = productDAO.sizeByGenre(genreId, priceFrom, priceTo);
-            }else if (searchValue != null) {
+            href = priceFrom.equals("0") ? "shop?genreId=" + genreId + "&" : "shop?genreId=" + genreId + "&priceFrom=" + priceFrom + "&priceTo=" + priceTo + "&";
+            size = productDAO.sizeByGenre(genreId, priceFrom, priceTo);
+        } else if (searchValue != null) {
             lstProduct = productDAO.getListProductPerPageBySeachValue(numberProductPerPage, pageCur, searchValue);
             href = "shop?searchValue=" + searchValue + "&";
-              size = productDAO.sizeBySearchValue(searchValue);
-            }
-         else {
-            lstProduct = productDAO.getListProductPerPage(numberProductPerPage, pageCur,  priceFrom, priceTo);
-            href = priceFrom.equals("0") ? "shop?" : "shop?priceFrom=" + priceFrom + "&priceTo=" + priceTo + "&"; 
-             size = productDAO.size( priceFrom, priceTo);
+            size = productDAO.sizeBySearchValue(searchValue);
+        } else {
+            lstProduct = productDAO.getListProductPerPage(numberProductPerPage, pageCur, priceFrom, priceTo);
+            href = priceFrom.equals("0") ? "shop?" : "shop?priceFrom=" + priceFrom + "&priceTo=" + priceTo + "&";
+            size = productDAO.size(priceFrom, priceTo);
         }
-          int totalPage = size % numberProductPerPage == 0
+        int totalPage = size % numberProductPerPage == 0
                 ? size / numberProductPerPage
                 : size / numberProductPerPage + 1;
         for (int i = 1; i <= totalPage; i++) {
             lstPage.add(i);
         }
-         request.setAttribute("priceFrom", priceFrom);
+        request.setAttribute("priceFrom", priceFrom);
         request.setAttribute("priceTo", priceTo);
-         request.setAttribute("genreId", genreId);
-          request.setAttribute("href", href);
-       request.setAttribute("lstProduct", lstProduct);
+        request.setAttribute("genreId", genreId);
+        request.setAttribute("href", href);
+        request.setAttribute("lstProduct", lstProduct);
         request.setAttribute("lstPage", lstPage);
-             request.setAttribute("pageCur", pageCur);
-               request.setAttribute("totalPage", totalPage);
+        request.setAttribute("pageCur", pageCur);
+        request.setAttribute("totalPage", totalPage);
         request.setAttribute("searchValue", searchValue);
         request.setAttribute("lstGenre", lstGenre);
-         request.setAttribute("lstProductSaleOff", lstProductSaleOff);
+        request.setAttribute("lstProductSaleOff", lstProductSaleOff);
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 
