@@ -11,7 +11,7 @@
               </div>
                  <c:forEach items="${requestScope.lstGenre}" var="g">
               <ul>
-                <li><a href="#">${g.genreName}</a></li>
+                <li><a href="shop?genreId=${g.genreId}">${g.genreName}</a></li>
               </ul>
                      </c:forEach> 
             </div>
@@ -19,8 +19,8 @@
           <div class="col-lg-9">
             <div class="hero__search">
               <div class="hero__search__form">
-                <form action="#">
-                  <input type="text" placeholder="What do yo u need?" />
+                <form method="get" action="shop">
+                  <input value="${requestScope.searchValue}" name="searchValue" type="text" placeholder="What do yo u need?" />
                   <button type="submit" class="site-btn">SEARCH</button>
                 </form>
               </div>

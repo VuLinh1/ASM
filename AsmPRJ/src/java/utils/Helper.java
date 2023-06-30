@@ -16,13 +16,7 @@ import java.util.Random;
  */
 public class Helper {
 
-    public static String genRandSixDigit() {
-        Random rnd = new Random();
-        int number = rnd.nextInt(999999);
-
-        // this will convert any number sequence into 6 character.
-        return String.format("%06d", number);
-    }
+  
 
     public static Properties getPropertiesByFileName(String fileName) {
         Properties properties = new Properties();

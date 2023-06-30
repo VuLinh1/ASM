@@ -78,7 +78,7 @@
         <!-- Header Section End -->
 
         <!-- Hero Section Begin -->
-     <%@include file="Component/hero-section.jsp" %>
+       <%@include file="Component/hero-section.jsp" %>
         <!-- Featured Section Begin -->
         <section class="featured spad">
             <div class="container">
