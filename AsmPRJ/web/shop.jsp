@@ -113,6 +113,7 @@
                                     <c:if test="${requestScope.genreId != 0}">
                                         <input type="hidden" name="genreId" value="${requestScope.genreId}">
                                     </c:if>
+                                          <h5 class="section-title  text-uppercase mb-3"><span class="Filter">Filter by price (VND)</span></h5>
                                     <div
                                         class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
                                         data-min="10"
@@ -132,10 +133,11 @@
                                     </div>
                                     <div class="range-slider">
                                         <div class="price-input">
-                                            <input type="text" id="minamount"name="priceTo" />
-                                            <input type="text" id="maxamount"  name="priceFrom"/>
+                                            <input type="text" id="minamount"name="priceTo"  value="10"/>
+                                            <input type="text" id="maxamount"  name="priceFrom" value="540"/>
                                         </div>
                                     </div>
+                                          <button type="submit" style="background-color: black" class="btn btn-primary px-5 w-100"><i class="fa fa-filter mr-1"></i> Filter</button>
                                 </form>
                             </div>
                         </div>
@@ -213,18 +215,13 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6 d-flex flex-wrap align-items-center">
                       <c:forEach items="${requestScope.lstProduct}" var="p">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
+               
+                        <div class="product__item product-card">
                             <div
-                                class="product__item__pic set-bg"
-                                data-setbg="${p.productImg}"
-                                
-                                >
-                                 <a href="product-detail?productId=${p.productId}">
-                                            <div class="product-action">
-                                            </div>
-                                        </a>
+                                class="product__item__pic set-bg product-card__img"
+                                data-setbg="${p.productImg}">
                                 <ul class="product__item__pic__hover">
                                     <li>
                                         <a href="#"><i class="fa fa-shopping-cart"></i></a>
@@ -234,12 +231,13 @@
                             <div class="product__item__text">
                                 <h6><a href="#">${p.productName}</a></h6>
                                 <a>${p.authorName}</a> 
-                                <h5>${p.productPrice}</h5>
+                                <h5>${p.productPrice}$</h5>
                             </div>
                         </div>
-                    </div>
-                </div>
+                 
                       </c:forEach>
+                           </div>
+                </div>
                 <div class="product__pagination">
                    <nav>
                                 <ul class="pagination justify-content-center">

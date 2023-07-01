@@ -73,16 +73,15 @@ public class ShopController extends HttpServlet {
         List<Integer> lstPage = new ArrayList<>();
         String href;
         int size = 0;
-        int genreId = request.getParameter("genreId") == null ? 0 : Integer.parseInt(request.getParameter("genreId"));
+        int genreId = request.getParameter("GenreId") == null ? 0 : Integer.parseInt(request.getParameter("GenreId"));
         String searchValue = request.getParameter("searchValue");
         int numberProductPerPage = 9;
         int pageCur = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
         List<Product> lstProduct;
-        String priceFrom = request.getParameter("priceFrom") == null ? "100000" : request.getParameter("priceFrom");
-        String priceTo = request.getParameter("priceTo") == null ? "1000000" : request.getParameter("priceTo");
+        String priceFrom = request.getParameter("priceFrom") == null ? "10" : request.getParameter("priceFrom");
+        String priceTo = request.getParameter("priceTo") == null ? "540" : request.getParameter("priceTo");
         if (genreId != 0) {
             lstProduct = productDAO.getListProductPerPageByCategoryId(numberProductPerPage, pageCur, genreId, priceFrom, priceTo);
-            //href = "shop?categoryId=" + categoryId + "&";
             href = priceFrom.equals("0") ? "shop?genreId=" + genreId + "&" : "shop?genreId=" + genreId + "&priceFrom=" + priceFrom + "&priceTo=" + priceTo + "&";
             size = productDAO.sizeByGenre(genreId, priceFrom, priceTo);
         } else if (searchValue != null) {
