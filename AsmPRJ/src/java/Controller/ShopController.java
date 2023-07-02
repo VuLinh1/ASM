@@ -73,7 +73,7 @@ public class ShopController extends HttpServlet {
         List<Integer> lstPage = new ArrayList<>();
         String href;
         int size = 0;
-        int genreId = request.getParameter("GenreId") == null ? 0 : Integer.parseInt(request.getParameter("GenreId"));
+        int genreId = request.getParameter("genreId") == null ? 0 : Integer.parseInt(request.getParameter("genreId"));
         String searchValue = request.getParameter("searchValue");
         int numberProductPerPage = 9;
         int pageCur = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));

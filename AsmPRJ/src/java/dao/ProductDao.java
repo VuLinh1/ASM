@@ -182,7 +182,7 @@ public class ProductDao {
     public List<Product> getListProductPerPageBySeachValue(int numberProductPerPage, int pageCur, String searchValue) {
 
         String sql = "  Select * from \n"
-                + "Product p Join Genre g ON p.GenreId = c.GenreId \n"
+                + "Product p Join Genre g ON p.GenreId = g.GenreId \n"
                 + "WHERE p.productName LIKE ? OR g.GenreName LIKE ?"
                 + "	Order BY p.productId\n"
                 + "OFFSET ? ROWS \n"
@@ -302,8 +302,36 @@ public class ProductDao {
         }
         return 0;
     }
+       public Product getOne(int productId) {
+
+        String sql = "Select * From Product Where productId = ?";//
+
+        try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
+            ps.setObject(1, productId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Product s = Product.builder()
+                          .productId(rs.getInt("productId"))
+                        .productName(rs.getString("productName"))
+                        .AuthorName(rs.getString("AuthorName"))
+                        .productImg(rs.getString("productImg"))
+                        .productPrice(rs.getInt("productPrice"))
+                        .productDescription(rs.getString("productDescription"))
+                        .GenreId(rs.getInt("GenreId"))
+                        .productIsFeatured(rs.getBoolean("productIsFeatured"))
+                        .productIsSaleOff(rs.getBoolean("productIsSaleOff"))
+                        .productDeleted(rs.getBoolean("productDeleted"))
+                        .build();
+                return s;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
-        System.out.println(new ProductDao().size("0", "100"));
+        System.out.println(new ProductDao().getListProductPerPageBySeachValue(2, 1, "the"));
     }
 }

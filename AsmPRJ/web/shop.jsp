@@ -167,17 +167,17 @@
                                             <div
                                                 class="product__discount__item__pic set-bg product-card__img"
                                                 data-setbg="${p.productImg}"
-                                                >
+                                                >                     
                                                 <div class="product__discount__percent">-20%</div>
                                                 <ul class="product__item__pic__hover">
                                                     <li>
-                                                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                                                        <a href="product-detail?productId=${p.productId}"><i class="fa fa-shopping-cart"></i></a>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="product__discount__item__text">
                                                 <span>GeekforBooks</span>
-                                                <h5><a href="#">${p.productName}</a></h5>
+                                                <h5>${p.productName}</h5>
                                                 <a>${p.authorName}</a> 
                                                 <div class="product__item__price">
                                                     <h5>${p.productPrice} $</h5>
@@ -225,7 +225,7 @@
                                     data-setbg="${p.productImg}">
                                     <ul class="product__item__pic__hover">
                                         <li>
-                                            <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                                            <a href="product-detail?productId=${p.productId}"><i class="fa fa-shopping-cart"></i></a>
                                         </li>
                                     </ul>
                                 </div>
