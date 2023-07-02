@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css" />
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
         <link rel="stylesheet" href="css/style.css?v=6" type="text/css" />
+        <link rel="stylesheet" href="css/pagination.css" type="text/css" />
     </head>
 
     <body>
@@ -113,7 +114,7 @@
                                     <c:if test="${requestScope.genreId != 0}">
                                         <input type="hidden" name="genreId" value="${requestScope.genreId}">
                                     </c:if>
-                                          <h5 class="section-title  text-uppercase mb-3"><span class="Filter">Filter by price (VND)</span></h5>
+                                    <h5 class="section-title  text-uppercase mb-3"><span class="Filter">Filter by price ($)</span></h5>
                                     <div
                                         class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
                                         data-min="10"
@@ -133,11 +134,11 @@
                                     </div>
                                     <div class="range-slider">
                                         <div class="price-input">
-                                            <input type="text" id="minamount"name="priceTo"  value="10"/>
-                                            <input type="text" id="maxamount"  name="priceFrom" value="540"/>
+                                            <input type="text" id="minamount"name="priceFrom"  value=""/>
+                                            <input type="text" id="maxamount"  name="priceTo" value=""/>
                                         </div>
                                     </div>
-                                          <button type="submit" style="background-color: black" class="btn btn-primary px-5 w-100"><i class="fa fa-filter mr-1"></i> Filter</button>
+                                    <button type="submit" style="background-color: black" class="btn btn-primary px-5 w-100"><i class="fa fa-filter mr-1"></i> Filter</button>
                                 </form>
                             </div>
                         </div>
@@ -215,48 +216,48 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6 d-flex flex-wrap align-items-center">
-                      <c:forEach items="${requestScope.lstProduct}" var="p">
-               
-                        <div class="product__item product-card">
-                            <div
-                                class="product__item__pic set-bg product-card__img"
-                                data-setbg="${p.productImg}">
-                                <ul class="product__item__pic__hover">
-                                    <li>
-                                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="#">${p.productName}</a></h6>
-                                <a>${p.authorName}</a> 
-                                <h5>${p.productPrice}$</h5>
+
+                    <c:forEach items="${requestScope.lstProduct}" var="p">
+                        <div  class="col-lg-4 col-md-6 col-sm-6 d-flex flex-wrap align-items-center">
+                            <div class="product__item product-card">
+                                <div
+                                    class="product__item__pic set-bg product-card__img"
+                                    data-setbg="${p.productImg}">
+                                    <ul class="product__item__pic__hover">
+                                        <li>
+                                            <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">${p.productName}</a></h6>
+                                    <a>${p.authorName}</a> 
+                                    <h5>${p.productPrice}$</h5>
+                                </div>
                             </div>
                         </div>
-                 
-                      </c:forEach>
-                           </div>
+                    </c:forEach>
+
                 </div>
                 <div class="product__pagination">
-                   <nav>
-                                <ul class="pagination justify-content-center">
-                                    <!--<li class="page-item disabled"><a class="page-link" href="#">Previous</span></a></li>-->
-                                    <li class="page-item <c:if test="${pageCur eq 1}"> disabled </c:if>"><a class="page-link" href="${requestScope.href}page=${requestScope.pageCur - 1}">Previous</span></a></li>
-                                        <c:forEach items="${requestScope.lstPage}" var="p">
-                                        <li class="page-item <c:if test="${p eq requestScope.pageCur}"> active </c:if> "><a class="page-link" href="${requestScope.href}page=${p}">${p}</a></li>
-                                        </c:forEach>
-                                    <li class="page-item <c:if test="${requestScope.pageCur eq requestScope.totalPage}"> disabled </c:if>"><a class="page-link" href="${requestScope.href}page=${requestScope.pageCur + 1}">Next</a></li>
-                                    </ul>
-                                </nav>
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <!--<li class="page-item disabled"><a class="page-link" href="#">Previous</span></a></li>-->
+                            <li class="page-item <c:if test="${pageCur eq 1}"> disabled </c:if>"><a class="page-link" href="${requestScope.href}page=${requestScope.pageCur - 1}">Previous</span></a></li>
+                                <c:forEach items="${requestScope.lstPage}" var="p">
+                                <li class="page-item <c:if test="${p eq requestScope.pageCur}"> active </c:if> "><a class="page-link" href="${requestScope.href}page=${p}">${p}</a></li>
+                                </c:forEach>
+                            <li class="page-item <c:if test="${requestScope.pageCur eq requestScope.totalPage}"> disabled </c:if>"><a class="page-link" href="${requestScope.href}page=${requestScope.pageCur + 1}">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Product Section End -->
+    </section>
+    <!-- Product Section End -->
 
-<!-- Footer Section Begin -->
+    <!-- Footer Section Begin -->
 <%@include file="Component/Footer-infor.jsp" %>
 <!-- Footer Section End -->
 

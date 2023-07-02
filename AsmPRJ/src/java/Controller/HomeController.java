@@ -5,8 +5,10 @@
 package Controller;
 
 import dao.AccountDAO;
+import dao.GenreDAO;
 import dao.ProductDao;
 import entity.Account;
+import entity.Genre;
 import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -70,6 +72,8 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+         GenreDAO genreDAO = new GenreDAO();
+        List<Genre> lstGenre = genreDAO.getAllbyGenre();
         HttpSession session = request.getSession();
           ProductDao productDAO = new ProductDao(); 
     Cookie[] cookies = request.getCookies();
@@ -94,6 +98,7 @@ public class HomeController extends HttpServlet {
               try {
             List<Product> lstProductFeatured = productDAO.getAllByFeatured();
             request.setAttribute("lstProductFeatured", lstProductFeatured);
+            request.setAttribute("lstGenre", lstGenre);
             request.getRequestDispatcher("home.jsp").forward(request, response);
         } catch (Exception e) {
             // Handle the SQLException appropriately

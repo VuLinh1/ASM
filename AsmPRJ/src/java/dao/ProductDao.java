@@ -18,7 +18,8 @@ import java.util.List;
  * @author ADMIN
  */
 public class ProductDao {
-     public List<Product> getAllByFeatured() {
+
+    public List<Product> getAllByFeatured() {
 
         String sql = "SELECT * FROM Product Where productIsFeatured = 1";//
 
@@ -47,11 +48,8 @@ public class ProductDao {
         }
         return null;
     }
-    public static void main(String[] args) {
-       
-        System.out.println(new ProductDao().getAllBySaleOff());
-    }
-     public List<Product> getAllBySaleOff() {
+
+    public List<Product> getAllBySaleOff() {
 
         String sql = "SELECT * FROM Product Where productIsSaleOff = 0";//
 
@@ -60,7 +58,7 @@ public class ProductDao {
 
             List<Product> list = new ArrayList<>();//
             while (rs.next()) {
-                 Product s = Product.builder()
+                Product s = Product.builder()
                         .productId(rs.getInt("productId"))
                         .productName(rs.getString("productName"))
                         .AuthorName(rs.getString("AuthorName"))
@@ -80,7 +78,8 @@ public class ProductDao {
         }
         return null;
     }
-     public List<Product> getListProductPerPage(int numberProductPerPage, int pageCur, String priceFrom, String priceTo) {
+
+    public List<Product> getListProductPerPage(int numberProductPerPage, int pageCur, String priceFrom, String priceTo) {
 
         String sql = ""
                 + "Select DISTINCT\n"
@@ -117,7 +116,7 @@ public class ProductDao {
                         .productDescription(rs.getString("productDescription"))
                         .GenreId(rs.getInt("GenreId"))
                         .productIsFeatured(rs.getBoolean("productIsFeatured"))
-                         .productIsSaleOff(rs.getBoolean("productIsSaleOff"))
+                        .productIsSaleOff(rs.getBoolean("productIsSaleOff"))
                         .productDeleted(rs.getBoolean("productDeleted"))
                         .build();
                 list.add(s);
@@ -128,11 +127,12 @@ public class ProductDao {
         }
         return null;
     }
-       public List<Product> getListProductPerPageByCategoryId(int numberProductPerPage, int pageCur, int genreId, String priceFrom, String priceTo) {
+
+    public List<Product> getListProductPerPageBygenreId(int numberProductPerPage, int pageCur, int genreId, String priceFrom, String priceTo) {
 
         String sql = ""
                 + "Select DISTINCT\n"
-           + "	p.productId,\n"
+                + "	p.productId,\n"
                 + "	p.productName,\n"
                 + "	p.productImg,\n"
                 + "	p.AuthorName,\n"
@@ -159,7 +159,7 @@ public class ProductDao {
             List<Product> list = new ArrayList<>();//
             while (rs.next()) {
                 Product s = Product.builder()
-                         .productId(rs.getInt("productId"))
+                        .productId(rs.getInt("productId"))
                         .productName(rs.getString("productName"))
                         .AuthorName(rs.getString("AuthorName"))
                         .productImg(rs.getString("productImg"))
@@ -167,7 +167,7 @@ public class ProductDao {
                         .productDescription(rs.getString("productDescription"))
                         .GenreId(rs.getInt("GenreId"))
                         .productIsFeatured(rs.getBoolean("productIsFeatured"))
-                         .productIsSaleOff(rs.getBoolean("productIsSaleOff"))
+                        .productIsSaleOff(rs.getBoolean("productIsSaleOff"))
                         .productDeleted(rs.getBoolean("productDeleted"))
                         .build();
                 list.add(s);
@@ -178,7 +178,8 @@ public class ProductDao {
         }
         return null;
     }
-        public List<Product> getListProductPerPageBySeachValue(int numberProductPerPage, int pageCur, String searchValue) {
+
+    public List<Product> getListProductPerPageBySeachValue(int numberProductPerPage, int pageCur, String searchValue) {
 
         String sql = "  Select * from \n"
                 + "Product p Join Genre g ON p.GenreId = c.GenreId \n"
@@ -197,7 +198,7 @@ public class ProductDao {
             List<Product> list = new ArrayList<>();//
             while (rs.next()) {
                 Product s = Product.builder()
-                         .productId(rs.getInt("productId"))
+                        .productId(rs.getInt("productId"))
                         .productName(rs.getString("productName"))
                         .AuthorName(rs.getString("AuthorName"))
                         .productImg(rs.getString("productImg"))
@@ -205,7 +206,7 @@ public class ProductDao {
                         .productDescription(rs.getString("productDescription"))
                         .GenreId(rs.getInt("GenreId"))
                         .productIsFeatured(rs.getBoolean("productIsFeatured"))
-                         .productIsSaleOff(rs.getBoolean("productIsSaleOff"))
+                        .productIsSaleOff(rs.getBoolean("productIsSaleOff"))
                         .productDeleted(rs.getBoolean("productDeleted"))
                         .build();
                 list.add(s);
@@ -216,11 +217,12 @@ public class ProductDao {
         }
         return null;
     }
-public int sizeByGenre(int genreId,  String priceFrom, String priceTo) {
+
+    public int sizeByGenre(int genreId, String priceFrom, String priceTo) {
 
         String sql = "SELECT COUNT(a.productId) as total from("
                 + "Select DISTINCT\n"
-            + "	p.productId,\n"
+                + "	p.productId,\n"
                 + "	p.productName,\n"
                 + "	p.productImg,\n"
                 + "	p.AuthorName,\n"
@@ -248,7 +250,8 @@ public int sizeByGenre(int genreId,  String priceFrom, String priceTo) {
         }
         return 0;
     }
-   public int sizeBySearchValue(String searchValue) {
+
+    public int sizeBySearchValue(String searchValue) {
 
         String sql = "SELECT COUNT(p.productId) as total from\n"
                 + "Product p Join Genre g ON p.GenreId = c.GenreId \n"
@@ -268,11 +271,12 @@ public int sizeByGenre(int genreId,  String priceFrom, String priceTo) {
         }
         return 0;
     }
-    public int size( String priceFrom, String priceTo) {
+
+    public int size(String priceFrom, String priceTo) {
 
         String sql = "SELECT COUNT(a.productId) as total from("
                 + "Select DISTINCT\n"
-            + "	p.productId,\n"
+                + "	p.productId,\n"
                 + "	p.productName,\n"
                 + "	p.productImg,\n"
                 + "	p.AuthorName,\n"
@@ -283,7 +287,7 @@ public int sizeByGenre(int genreId,  String priceFrom, String priceTo) {
                 + "	p.productIsSaleOff,\n"
                 + "	p.productDeleted\n"
                 + "from product p \n"
-                + " Where p.productPrice between ? and ? ";
+                + " Where p.productPrice between ? and ? ) as a";
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setObject(1, priceFrom);
             ps.setObject(2, priceTo);
@@ -297,5 +301,9 @@ public int sizeByGenre(int genreId,  String priceFrom, String priceTo) {
             e.printStackTrace(System.out);
         }
         return 0;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new ProductDao().size("0", "100"));
     }
 }

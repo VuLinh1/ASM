@@ -78,10 +78,10 @@ public class ShopController extends HttpServlet {
         int numberProductPerPage = 9;
         int pageCur = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
         List<Product> lstProduct;
-        String priceFrom = request.getParameter("priceFrom") == null ? "10" : request.getParameter("priceFrom");
+        String priceFrom = request.getParameter("priceFrom") == null ? "0" : request.getParameter("priceFrom");
         String priceTo = request.getParameter("priceTo") == null ? "540" : request.getParameter("priceTo");
         if (genreId != 0) {
-            lstProduct = productDAO.getListProductPerPageByCategoryId(numberProductPerPage, pageCur, genreId, priceFrom, priceTo);
+            lstProduct = productDAO.getListProductPerPageBygenreId(numberProductPerPage, pageCur, genreId, priceFrom, priceTo);
             href = priceFrom.equals("0") ? "shop?genreId=" + genreId + "&" : "shop?genreId=" + genreId + "&priceFrom=" + priceFrom + "&priceTo=" + priceTo + "&";
             size = productDAO.sizeByGenre(genreId, priceFrom, priceTo);
         } else if (searchValue != null) {
@@ -99,6 +99,7 @@ public class ShopController extends HttpServlet {
         for (int i = 1; i <= totalPage; i++) {
             lstPage.add(i);
         }
+        System.out.println(lstPage);
         request.setAttribute("priceFrom", priceFrom);
         request.setAttribute("priceTo", priceTo);
         request.setAttribute("genreId", genreId);
