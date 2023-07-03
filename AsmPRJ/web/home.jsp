@@ -105,7 +105,7 @@
                                 <div class="featured__item__text">
                                     <h6><a href="#">${p.productName}</a></h6>
                                     <a>${p.authorName}</a> 
-                                    <h5>${p.productPrice} VND</h5>
+                                    <h5>${p.productPrice} $</h5>
                                 </div>
                             </div>
                         </div>

@@ -60,7 +60,7 @@
                             <li><a href="./checkout.html">Check Out</a></li>
                         </ul>
                     </li>
-                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./contact.jsp">Contact</a></li>
                 </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>
@@ -88,7 +88,10 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
 
-                        <h2 style="font-family: cursive">GeekforBooks</h2>
+                        <h2 class="webbook-heading">
+                            <span>GeeksforBooks</span>
+
+                        </h2>
                         <div class="breadcrumb__option">
                             <a href="/home">Home</a>
                             <span>Shop</span>
@@ -202,11 +205,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="filter__found">
-                                <h6><span>16</span> Products found</h6>
-                            </div>
-                        </div>
+                       
                         <div class="col-lg-4 col-md-3">
                             <div class="filter__option">
                                 <span class="icon_grid-2x2"></span>
@@ -260,7 +259,16 @@
     <!-- Footer Section Begin -->
 <%@include file="Component/Footer-infor.jsp" %>
 <!-- Footer Section End -->
-
+<style>
+  .webbook-heading {
+    font-family: Cursive, sans-serif;
+    font-size: 36px;
+    color: #333;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+  }
+  </style>
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

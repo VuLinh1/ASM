@@ -7,7 +7,7 @@
         <meta name="keywords" content="Ogani, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Ogani | Template</title>
+        <title>Shop-Detail</title>
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -87,7 +87,10 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
 
-                        <h2 style="font-family: cursive">GeekforBooks</h2>
+                        <h2 class="webbook-heading">
+                            <span>GeeksforBooks</span>
+
+                        </h2>
                         <div class="breadcrumb__option">
                             <a href="/home">Home</a>
                             <span>Shop</span>
@@ -105,13 +108,12 @@
 <section class="product-details spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-4 col-lg-1">
                 <div class="product__details__pic">
                     <div class="product__details__pic__item ">
                         <img e class="product__details__pic__item--large product-card__img   "
                              src="${requestScope.product.productImg}" alt=""
-                             >
-                        
+                             style="border-radius: 15px; box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);">
                     </div>
 
                 </div>
@@ -119,9 +121,9 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3>${requestScope.product.productName}</h3>
-                  <h3>${requestScope.product.authorName}</h3>
+                    <h3>${requestScope.product.authorName}</h3>
                     <div class="product__details__price ">${product.productPrice}$</div>
-                   
+
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
@@ -144,20 +146,21 @@
                             <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
                                aria-selected="true">Description</a>
                         </li>
-                       
+
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                          <p>${requestScope.product.productDescription}</p>
-                        </div>
-                       
-                       
+                            <p class="new-theme-description">${requestScope.product.productDescription}</p>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
 </section>
 <!-- Product Details Section End -->
 
@@ -168,7 +171,36 @@
 <!-- Footer Section Begin -->
 <%@include file="Component/Footer-infor.jsp" %>
 <!-- Footer Section End -->
+<style>
+    .new-theme-description {
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        color: #333;
+        line-height: 1.6;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        text-align: left;
+    }
 
+    .new-theme-description:first-letter {
+        font-size: 28px;
+        font-weight: bold;
+        color: #666;
+    }
+</style>
+<style>
+    .webbook-heading {
+        font-family: Cursive, sans-serif;
+        font-size: 36px;
+        color: #333;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 10px;
+    }
+</style>
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

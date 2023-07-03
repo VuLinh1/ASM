@@ -9,9 +9,10 @@
                         <i class="fa fa-bars"></i>
                         <span>Genre</span>
                     </div>
-                    <ul>
-                        <c:forEach items="${requestScope.lstGenre}" var="g">
-                            <li><a href="shop?genreId=${g.genreId}">${g.genreName}</a></li>
+                 
+                         <ul style="display: none;">
+                        <c:forEach  items="${requestScope.lstGenre}" var="g">
+                            <li><a  href="shop?genreId=${g.genreId}">${g.genreName}</a></li>
                         </c:forEach> 
                     </ul>
                 </div>
