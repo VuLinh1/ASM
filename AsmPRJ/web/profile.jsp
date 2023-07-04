@@ -6,11 +6,37 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="assets/img/logo1.png" type="image/x-icon" />
         <title>Profile</title>
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+            rel="stylesheet"
+            />
+        <!--Bootstrap-->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+            />
+        <!--FontAwesome-->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+            />
+        <!--css file-->
+        <link rel="stylesheet" href="Assets/css/profile_2.css" />
+        <link href="Assets/css/style_2.css" rel="stylesheet" />
     </head>
 
     <body>
-        <%@include file="Component/header-infor.jsp" %>
+      
         <!-- Topbar End -->
         <div class="container emp-profile">
             <div class="row">
@@ -28,6 +54,7 @@
                         <div class="profile-head">
                             <h5>${sessionScope.accountDetail.accountDetailName}</h5>
                             <h6>Email: ${sessionScope.accountCur.accountEmail}</h6>
+                            <!--                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>-->
                         </div>
                     </div>
                     <div class="col-md-3">
