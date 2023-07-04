@@ -40,7 +40,7 @@
                         <a
                             class="profile-edit-btn"
                            
-                            href="home.jsp"
+                            href="home"
                             >Back to Home</a
                         >
                     </div>

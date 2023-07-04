@@ -35,11 +35,11 @@
                 <li>
                   <a href="#">Pages</a>
                   <ul class="header__menu__dropdown">
-                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                    <li><a href="./cart">Shoping Cart</a></li>
                     <li><a href="./checkout.html">Check Out</a></li>
                   </ul>
                 </li>
-                <li><a href="./contact.jsp">Contact</a></li>
+                <li><a href="./contact">Contact</a></li>
                       <li><a href="./profile">Profile</a></li>
               </ul>
             </nav>
