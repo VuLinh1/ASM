@@ -40,6 +40,7 @@
                   </ul>
                 </li>
                 <li><a href="./contact.jsp">Contact</a></li>
+                      <li><a href="./profile">Profile</a></li>
               </ul>
             </nav>
           </div>

@@ -98,4 +98,17 @@ public class AccountDAO {
         }
         return null;
     }
+       public boolean changePassword(int accountId, String newPassword) {
+        int check = 0;
+        String sql = "UPDATE Account SET accountPassword = ? WHERE accountId = ?";
+
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareStatement(sql);) {
+            ps.setObject(1, newPassword);
+            ps.setObject(2, accountId);
+            check = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
 }
