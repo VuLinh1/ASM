@@ -17,9 +17,9 @@
         <tbody>
             <tr>
                 <td>1</td>
-                <td>Quoc Phung</tda>
-                <td>0911092002</td>
-                <td>2023-05-24</td>
+              <td>Linhdeptrai</tda>
+                <td>082803734</td>
+                <td>2023-02-01</td>         
                 <td><a data-toggle="modal" data-target="#modal-order-detail" href="javascript:void(0)"><i class="fa-solid fa-eye"></i></a></td>
             </tr>
             <tr>
