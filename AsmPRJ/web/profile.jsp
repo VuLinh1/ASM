@@ -36,13 +36,20 @@
     </head>
 
     <body>
-      
+       <div class="col-md-3" style="text-decoration: none">
+                        <a
+                            class="profile-edit-btn"
+                           
+                            href="home.jsp"
+                            >Back to Home</a
+                        >
+                    </div>
         <!-- Topbar End -->
         <div class="container emp-profile">
             <div class="row">
                 <div class="col-md-3">
                     <div class="profile-img">
-                        <img src="assets/img/bg-smart-home-2.jpg" alt="" />
+                        <img src="Assets/images/WIN_20221108_11_50_17_Pro.jpg" alt="" />
                         <div class="file btn btn-lg btn-primary">
                             Change Photo
                             <input type="file" name="file" />
