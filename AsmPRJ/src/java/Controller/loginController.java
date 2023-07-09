@@ -123,9 +123,8 @@ public class loginController extends HttpServlet {
         try {
             Account account = AccountDAO.authenticate(username, password);
             if (account == null) {
-                session.setAttribute("msg", "login Fail email or pw wrong");
                  session.setAttribute("error", "password or Username wrong!!!" );
-                 response.sendRedirect("login.jsp");
+                 response.sendRedirect("login");
             } else {
 
                 session.setAttribute("accountCur", account);

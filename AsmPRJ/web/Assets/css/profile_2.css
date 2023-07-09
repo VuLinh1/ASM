@@ -399,7 +399,7 @@ nav img {
 }
 
 body {
-  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  background-color: #0c5460;
 }
 .emp-profile {
   padding: 3%;
@@ -424,7 +424,7 @@ body {
   border: none;
   border-radius: 0;
   font-size: 15px;
-  background: #c1c105b8;
+  background: #f0f0f0;
 }
 .profile-img .file input {
   position: absolute;

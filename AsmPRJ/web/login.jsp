@@ -32,9 +32,6 @@
                     <div class="login100-pic js-tilt" data-tilt>
                         <img src="Assets/images/img-01.png" alt="IMG">
                     </div>
-                    <div style="color: red">
-                        ${requestScope.msg}
-                    </div>
                     <form action ="login" method="post" class="login100-form validate-form">
                         <span class="login100-form-title">
                             LoginForMember
@@ -54,9 +51,9 @@
                             <span class="symbol-input100">
                                 <i class="fa fa-lock" aria-hidden="true"></i>
                             </span>
-                            <small id="emailHelp" class="form-text text-muted">${requestScope.error}</small>
+                            
                         </div>
-
+<small id="emailHelp" class="form-text text-muted">${sessionScope.error}</small>
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn"type="submit">
                                 Login
