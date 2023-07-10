@@ -333,5 +333,6 @@ public class ProductDao {
 
     public static void main(String[] args) {
         System.out.println(new ProductDao().getListProductPerPageBySeachValue(2, 1, "the"));
+        
     }
 }
