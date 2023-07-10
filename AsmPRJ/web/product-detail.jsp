@@ -11,7 +11,31 @@
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+ <style>
+            html{
+                scroll-behavior: smooth;
+            }
 
+            #myBtn {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 30px;
+                z-index: 99;
+                font-size: 18px;
+                border: none;
+                outline: none;
+                background-color: green;
+                color: white;
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 4px;
+            }
+
+            #myBtn:hover {
+                background-color: #333;
+            }
+        </style>
         <!-- Css Styles -->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -24,6 +48,7 @@
     </head>
 
     <body>
+         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
         <!-- Page Preloder -->
         <div id="preloder">
             <div class="loader"></div>
@@ -111,9 +136,9 @@
             <div class="col-lg-4 col-lg-1">
                 <div class="product__details__pic">
                     <div class="product__details__pic__item ">
-                        <img e class="product__details__pic__item--large product-card__img   "
+                        <img e 
                              src="${requestScope.product.productImg}" alt=""
-                             style="border-radius: 15px; box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);">
+                             style="box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;">
                     </div>
 
                 </div>
@@ -201,6 +226,27 @@
         padding: 10px;
     }
 </style>
+<script>
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>   
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

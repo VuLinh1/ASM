@@ -233,7 +233,7 @@ public class ProductDao {
                 + "	p.productIsSaleOff,\n"
                 + "	p.productDeleted\n"
                 + "from product p \n"
-                + " Where GenreId = ? and p.productPrice between ? and ? ";
+                + " Where GenreId = ? and p.productPrice between ? and ?) as a ";
 
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setObject(1, genreId);
@@ -253,9 +253,9 @@ public class ProductDao {
 
     public int sizeBySearchValue(String searchValue) {
 
-        String sql = "SELECT COUNT(p.productId) as total from\n"
-                + "Product p Join Genre g ON p.GenreId = c.GenreId \n"
-                + "WHERE p.productName LIKE ? OR c.GenreName LIKE ?";
+        String sql = "SELECT COUNT(p.productId) as total from \n"
+                + "Product p Join Genre g ON p.GenreId = g.GenreId \n"
+                + "WHERE p.productName LIKE ? OR g.GenreName LIKE ? ";
 
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setObject(1, "%" + searchValue + "%");

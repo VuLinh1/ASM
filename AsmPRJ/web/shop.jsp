@@ -15,7 +15,31 @@
             href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
             rel="stylesheet"
             />
+        <style>
+            html{
+                scroll-behavior: smooth;
+            }
 
+            #myBtn {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 30px;
+                z-index: 99;
+                font-size: 18px;
+                border: none;
+                outline: none;
+                background-color: green;
+                color: white;
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 4px;
+            }
+
+            #myBtn:hover {
+                background-color: #333;
+            }
+        </style>
         <!-- Css Styles -->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
@@ -29,6 +53,7 @@
     </head>
 
     <body>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
         <!-- Humberger Begin -->
         <%@include file="Component/header-authen.jsp" %>
         <!-- Humberger End -->
@@ -165,7 +190,7 @@
                                 </select>
                             </div>
                         </div>
-                       
+
                         <div class="col-lg-4 col-md-3">
                             <div class="filter__option">
                                 <span class="icon_grid-2x2"></span>
@@ -220,16 +245,38 @@
 <%@include file="Component/Footer-infor.jsp" %>
 <!-- Footer Section End -->
 <style>
-  .webbook-heading {
-    font-family: Cursive, sans-serif;
-    font-size: 36px;
-    color: #333;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 10px;
-  }
-  </style>
+    .webbook-heading {
+        font-family: Cursive, sans-serif;
+        font-size: 36px;
+        color: #333;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 10px;
+    }
+</style>
+
 <!-- Js Plugins -->
+<script>
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>   
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.nice-select.min.js"></script>
