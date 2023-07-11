@@ -5,9 +5,10 @@ package Controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 import dao.AccountDAO;
+import dao.AccountDetailDAO;
 import entity.Account;
+import entity.AccountDetail;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -73,6 +74,10 @@ public class SignupController extends HttpServlet {
                 int accountId = AccountDAO.register(acc);
                 if (accountId > 0) {        
                     request.getRequestDispatcher("login.jsp").forward(request, response);
+                    AccountDetail accountDetail = AccountDetail.builder()
+                            .accountId(accountId)
+                            .build();
+                    new AccountDetailDAO().add(accountDetail);
                 }
             } else {
                   session.removeAttribute("msg1");

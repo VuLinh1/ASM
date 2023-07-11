@@ -68,7 +68,7 @@
         <!-- Hero Section End -->
 
         <!-- Breadcrumb Section Begin -->
-        <section class="breadcrumb-section set-bg" >
+        <section class="breadcrumb-section set-bg m-0 p-0" >
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
@@ -89,7 +89,7 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Product Section Begin -->
-    <section class="product spad">
+    <section class="product spad pt-0">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-5">
@@ -183,11 +183,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
-                                <span>Sort By</span>
-                                <select>
-                                    <option value="0">Default</option>
-                                    <option value="0">Default</option>
-                                </select>
+                                <span>Product</span> 
                             </div>
                         </div>
 

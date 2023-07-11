@@ -5,6 +5,7 @@
 package Controller;
 
 import dao.AccountDAO;
+import dao.AccountDetailDAO;
 import dao.GenreDAO;
 import dao.ProductDao;
 import entity.Account;
@@ -92,6 +93,7 @@ public class HomeController extends HttpServlet {
             if (account != null) {
                
                 session.setAttribute("accountCur", account);
+                session.setAttribute("accountDetail", new AccountDetailDAO().getOne(account.getAccountId()));
             }
         }
         if(session.getAttribute("accountCur")!= null){

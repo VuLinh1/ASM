@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<section class="hero">
+<section class="hero pb-0">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">

@@ -5,6 +5,7 @@ package Controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 import dao.AccountDAO;
+import dao.AccountDetailDAO;
 import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -82,6 +83,7 @@ public class loginController extends HttpServlet {
             Account account = AccountDAO.authenticate(username, password);
             if (account != null) {
                 session.setAttribute("accountCur", account);
+                session.setAttribute("accountDetail", new AccountDetailDAO().getOne(account.getAccountId()));
                 response.sendRedirect("home");
                 return;
             }
@@ -128,6 +130,7 @@ public class loginController extends HttpServlet {
             } else {
 
                 session.setAttribute("accountCur", account);
+                session.setAttribute("accountDetail", new AccountDetailDAO().getOne(account.getAccountId()));
                 if (isRemeberMe) {
 
                     Cookie cookieUsername = new Cookie(REMEMBER_ME_COOKIE_USERNAME, username);

@@ -45,7 +45,7 @@
         <!-- Hero Section Begin -->
        <%@include file="Component/hero-section.jsp" %>
         <!-- Featured Section Begin -->
-        <section class="featured spad">
+        <section class="featured spad pt-0">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">

@@ -17,6 +17,7 @@ import java.sql.SQLException;
  * @author DELL
  */
 public class AccountDetailDAO {
+
     public boolean add(AccountDetail obj) {
         int check = 0;
         String sql = "INSERT INTO AccountDetail(accountId, accountDetailName, accountDetailDob, accountDetailDoc)"
@@ -31,7 +32,7 @@ public class AccountDetailDAO {
         }
         return check > 0;
     }
-    
+
     public AccountDetail getOne(int accountId) {
 
         String sql = "Select * From AccountDetail Where accountId = ?";//
@@ -55,8 +56,8 @@ public class AccountDetailDAO {
         }
         return null;
     }
-    
-     public boolean update(String accountDetailName, Date accountDetailDob, int accountId) {
+
+    public boolean update(String accountDetailName, Date accountDetailDob, int accountId) {
         int check = 0;
         String sql = "UPDATE AccountDetail SET accountDetailName = ?, accountDetailDob = ? WHERE accountId = ?";
 
@@ -69,5 +70,12 @@ public class AccountDetailDAO {
             e.printStackTrace(System.out);
         }
         return check > 0;
+    }
+
+    public static void main(String[] args) {
+        AccountDetail accountDetail = AccountDetail.builder()
+                .accountId(1)
+                .build();
+        new AccountDetailDAO().add(accountDetail);
     }
 }
