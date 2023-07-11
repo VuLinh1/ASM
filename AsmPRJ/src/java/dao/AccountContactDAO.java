@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  *
- * @author DELL
+ * @author linh
  */
 public class AccountContactDAO {
 
