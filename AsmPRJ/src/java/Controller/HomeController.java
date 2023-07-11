@@ -102,7 +102,7 @@ public class HomeController extends HttpServlet {
         if (session.getAttribute("accountCur") != null) {
             try {
                 List<Product> lstProductFeatured = productDAO.getAllByFeatured();
-               
+                session.setAttribute("lstCart", new ArrayList<Cart>());
                 request.setAttribute("lstProductFeatured", lstProductFeatured);
                 request.setAttribute("lstGenre", lstGenre);
                 request.getRequestDispatcher("home.jsp").forward(request, response);

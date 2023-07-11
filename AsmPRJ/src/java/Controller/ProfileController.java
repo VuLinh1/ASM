@@ -91,7 +91,6 @@ public class ProfileController extends HttpServlet {
         Account account = (Account) session.getAttribute("accountCur");
         AccountContactDAO accountContactDAO = new AccountContactDAO();
         AccountDetail accountDetail = (AccountDetail) session.getAttribute("accountDetail");
-
         String type = request.getParameter("type");
         switch (type) {
             case "changeInformation": {
