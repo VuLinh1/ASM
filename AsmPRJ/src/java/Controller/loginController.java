@@ -7,6 +7,7 @@ package Controller;
 import dao.AccountDAO;
 import dao.AccountDetailDAO;
 import entity.Account;
+import entity.Cart;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,6 +17,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 /**
  *
@@ -84,6 +86,7 @@ public class loginController extends HttpServlet {
             if (account != null) {
                 session.setAttribute("accountCur", account);
                 session.setAttribute("accountDetail", new AccountDetailDAO().getOne(account.getAccountId()));
+                  session.setAttribute("lstCart", new ArrayList<Cart>());
                 response.sendRedirect("home");
                 return;
             }
@@ -128,9 +131,9 @@ public class loginController extends HttpServlet {
                  session.setAttribute("error", "password or Username wrong!!!" );
                  response.sendRedirect("login");
             } else {
-
                 session.setAttribute("accountCur", account);
                 session.setAttribute("accountDetail", new AccountDetailDAO().getOne(account.getAccountId()));
+                session.setAttribute("lstCart", new ArrayList<Cart>());
                 if (isRemeberMe) {
 
                     Cookie cookieUsername = new Cookie(REMEMBER_ME_COOKIE_USERNAME, username);

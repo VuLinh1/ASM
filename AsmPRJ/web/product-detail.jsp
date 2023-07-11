@@ -11,7 +11,7 @@
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
- <style>
+        <style>
             html{
                 scroll-behavior: smooth;
             }
@@ -48,54 +48,14 @@
     </head>
 
     <body>
-         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
         <!-- Page Preloder -->
         <div id="preloder">
             <div class="loader"></div>
         </div>
 
         <!-- Humberger Begin -->
-        <div class="humberger__menu__overlay"></div>
-        <div class="humberger__menu__wrapper">
-            <div class="humberger__menu__logo">
-                <a href="#"><img src="img/logo.png" alt="" /></a>
-            </div>
-            <div class="humberger__menu__cart">
-                <ul>
-                    <li>
-                        <a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a>
-                    </li>
-                </ul>
-                <div class="header__cart__price">item: <span>$150.00</span></div>
-            </div>
-            <div class="humberger__menu__widget">
-                <div class="header__top__right__auth">
-                    <a href="#"><i class="fa fa-user"></i> Login</a>
-                </div>
-            </div>
-            <nav class="humberger__menu__nav mobile-menu">
-                <ul>
-                    <li ><a href="home">Home</a></li>
-                    <li class="active"><a href="shop">Shop</a></li>
-                    <li>
-                        <a href="#">Page</a>
-                        <ul class="header__menu__dropdown">
-                            <li><a href="./shop-details.html">Shop Details</a></li>
-                            <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                            <li><a href="./checkout.html">Check Out</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div id="mobile-menu-wrap"></div>
-            <div class="humberger__menu__contact">
-                <ul>
-                    <li><i class="fa fa-envelope"></i> vulinh@g.com</li>
-                    <li>Free Shipping for all Order of $99</li>
-                </ul>
-            </div>
-        </div>
+       <%@include file="Component/header-authen.jsp" %>
         <!-- Humberger End -->
 
         <!-- Header Section Begin -->
@@ -148,15 +108,28 @@
                     <h3>${requestScope.product.productName}</h3>
                     <h3>${requestScope.product.authorName}</h3>
                     <div class="product__details__price ">${product.productPrice}$</div>
+                    <form action="product-detail" method="post">
+                        <input type="hidden" name="productId" value="${requestScope.product.productId}"> 
+                        <input type="hidden" name="orderDetailProductImg" value="${requestScope.product.productImg}"> 
+                        <input type="hidden" name="orderDetailProductName" value="${requestScope.product.productName}"> 
+                        <input type="hidden" name="orderDetailPriceProduct" value="${requestScope.product.productPrice}"> 
 
-                    <div class="product__details__quantity">
-                        <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" value="1">
+                        <div class="product__details__quantity">
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input name="orderDetailQuantity"  type="text" value="1">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <a href="#" class="primary-btn">ADD TO CARD</a>
+                         <c:if test="${sessionScope.accountCur != null}">
+                        <button  type="submit" class="primary-btn">ADD TO CARD</button>
+                           </c:if>  
+                         <c:if test="${sessionScope.accountCur == null}">
+                             <a href="login">
+                                 <button  type="button" class="primary-btn">ADD TO CARD</button>
+                           </a>
+                           </c:if>  
+                    </form>
                     <ul>
                         <li><b>Availability</b> <span>In Stock</span></li>
                         <li><b>Shipping</b> <span>01 day shipping.<br> <samp>Free pickup today</samp></span></li>
@@ -228,24 +201,26 @@
 </style>
 <script>
 // Get the button
-let mybutton = document.getElementById("myBtn");
+    let mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+    window.onscroll = function () {
+        scrollFunction()
+    };
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
 
 // When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
 </script>   
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>

@@ -9,6 +9,7 @@ import dao.AccountDetailDAO;
 import dao.GenreDAO;
 import dao.ProductDao;
 import entity.Account;
+import entity.Cart;
 import entity.Genre;
 import entity.Product;
 import java.io.IOException;
@@ -25,6 +26,7 @@ import java.util.List;
 import jakarta.servlet.ServletException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -32,6 +34,7 @@ import java.sql.SQLException;
  */
 @WebServlet(name = "HomeController", urlPatterns = {"/home"})
 public class HomeController extends HttpServlet {
+
     private static final String REMEMBER_ME_COOKIE_USERNAME = "rememberMeUsername";
     private static final String REMEMBER_ME_COOKIE_PASSWORD = "rememberMePasword";
 
@@ -52,7 +55,7 @@ public class HomeController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeController</title>");            
+            out.println("<title>Servlet HomeController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet HomeController at " + request.getContextPath() + "</h1>");
@@ -73,11 +76,11 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         GenreDAO genreDAO = new GenreDAO();
+        GenreDAO genreDAO = new GenreDAO();
         List<Genre> lstGenre = genreDAO.getAllbyGenre();
         HttpSession session = request.getSession();
-          ProductDao productDAO = new ProductDao(); 
-    Cookie[] cookies = request.getCookies();
+        ProductDao productDAO = new ProductDao();
+        Cookie[] cookies = request.getCookies();
         String username = null;
         String password = null;
         if (cookies != null) {
@@ -89,27 +92,27 @@ public class HomeController extends HttpServlet {
                     password = cookie.getValue();
                 }
             }
-           Account account = AccountDAO.authenticate(username, password);
+            Account account = AccountDAO.authenticate(username, password);
             if (account != null) {
-               
+
                 session.setAttribute("accountCur", account);
                 session.setAttribute("accountDetail", new AccountDetailDAO().getOne(account.getAccountId()));
             }
         }
-        if(session.getAttribute("accountCur")!= null){
-              try {
-            List<Product> lstProductFeatured = productDAO.getAllByFeatured();
-            request.setAttribute("lstProductFeatured", lstProductFeatured);
-            request.setAttribute("lstGenre", lstGenre);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
-        } catch (Exception e) {
-            // Handle the SQLException appropriately
-        }
-        }else{
+        if (session.getAttribute("accountCur") != null) {
+            try {
+                List<Product> lstProductFeatured = productDAO.getAllByFeatured();
+               
+                request.setAttribute("lstProductFeatured", lstProductFeatured);
+                request.setAttribute("lstGenre", lstGenre);
+                request.getRequestDispatcher("home.jsp").forward(request, response);
+            } catch (Exception e) {
+                // Handle the SQLException appropriately
+            }
+        } else {
             response.sendRedirect("login.jsp");
         }
-                
-        
+
     }
 
     /**

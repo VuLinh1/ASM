@@ -36,7 +36,7 @@
     </head>
 
     <body>
-       <div class="col-md-3" style="text-decoration: none;position: absolute;top: 10px;left: 165px">
+       <div class="col-md-3" style="text-decoration: none;position: absolute;top: 10px;left: 200px">
                         <a
                             class="profile-edit-btn"
                            

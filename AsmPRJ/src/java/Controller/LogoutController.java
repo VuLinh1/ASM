@@ -70,6 +70,7 @@ public class LogoutController extends HttpServlet {
         cookiePassword.setMaxAge(0);
         response.addCookie(cookiePassword);
         session.removeAttribute("accountCur");
+        session.removeAttribute("lstCart");
         response.sendRedirect("login");
     }
 

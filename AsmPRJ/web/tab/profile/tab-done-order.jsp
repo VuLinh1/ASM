@@ -24,13 +24,6 @@
                 <td>2023-03-06</td>
                 <td><i class="fa-solid fa-eye"></i></td>
             </tr>
-            <tr>
-                <td scope="row">ádasd</td>
-                <td>ádasd</tda>
-                <td>ádasd</td>
-                <td>ádasd</td>
-                <td>ádasd</td>
-            </tr>
         </tbody>
     </table>
 </div>

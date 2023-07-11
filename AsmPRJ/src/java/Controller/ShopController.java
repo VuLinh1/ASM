@@ -6,6 +6,7 @@ package Controller;
 
 import dao.GenreDAO;
 import dao.ProductDao;
+import entity.Cart;
 import entity.Genre;
 import entity.Product;
 import java.io.IOException;
@@ -15,6 +16,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -65,7 +67,8 @@ public class ShopController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+         HttpSession session = request.getSession();
+ 
         ProductDao productDAO = new ProductDao();
         GenreDAO genreDAO = new GenreDAO();
         List<Genre> lstGenre = genreDAO.getAllbyGenre();
