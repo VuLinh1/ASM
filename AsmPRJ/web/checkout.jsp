@@ -73,29 +73,27 @@
 
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
-                            <c:forEach items="${requestScope.lstAccountContact}" var="ac">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="checkout__input" ">
                                             Name<span></span>
-                                            <input style="color: black" disabled="" type="text" value="${ac.accountContactName}">
+                                            <input name="accountContactName" style="color: black" type="text" value="${requestScope.accountContact.accountContactName}">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="checkout__input">
                                     Address<span></span>
-                                    <input style="color: black" disabled="" type="text" value="${ac.accountContactAddress}">
+                                    <input name="accountContactAddress" style="color: black"  type="text" value="${requestScope.accountContact.accountContactAddress}">
                                 </div> 
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
                                             Phone<span></span>
-                                            <input style="color: black" disabled="" type="text"   value="${ac.accountContactMobile}">
+                                            <input name="accountContactMobile" style="color: black"  type="text"   value="${requestScope.accountContact.accountContactMobile}">
                                         </div>
                                     </div>
                                 </div>
-                            </c:forEach>      
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
@@ -115,11 +113,12 @@
                                     </div>
                                 </a>
                                 <div id="my_form">       
-                                    <button id="nextStep" type="submit" class="site-btn">PLACE ORDER</button>
+                                    <button type="submit" id="nextStep" class="site-btn">
+                                        PLACE ORDER</button>
                                 </div>
                                 <div id="thank_you" style="display: none;">
                                     <p class="cool-message">Thanks for placing your order!</p>
-                                    <a href ="home">Close</a>
+                                  
                                 </div>
                             </div>
                         </div>
@@ -146,15 +145,15 @@
 
     <!-- Js Plugins -->
     <script>
-        var nextStep = document.querySelector('#nextStep');
-
-        nextStep.addEventListener('click', function (e) {
-            e.preventDefault();
-            // Hide first view
-            document.getElementById('my_form').style.display = 'none';
-
-            // Show thank you message element
-            document.getElementById('thank_you').style.display = 'block';
+//        var nextStep = document.querySelector('#nextStep');
+//
+//        nextStep.addEventListener('click', function (e) {
+//            e.preventDefault();
+//            // Hide first view
+//            document.getElementById('my_form').style.display = 'none';
+//
+//            // Show thank you message element
+//            document.getElementById('thank_you').style.display = 'block';
         });
     </script>
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -169,5 +168,4 @@
 
 
 </body>
-
 </html>

@@ -12,7 +12,6 @@
                 <th scope="col">Phone Contact</th>
                 <th scope="col">Order Date</th>
                 <th scope="col">Done Date</th>
-                <th scope="col">View</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +21,6 @@
                 <td>082803734</td>
                 <td>2023-02-01</td>
                 <td>2023-03-06</td>
-                <td><i class="fa-solid fa-eye"></i></td>
             </tr>
         </tbody>
     </table>

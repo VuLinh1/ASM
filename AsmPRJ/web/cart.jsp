@@ -81,7 +81,7 @@
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <c:forEach items="${sessionScope.lstCart}" var="c">
+                                    <c:forEach items="${sessionScope.lstCart}" var="c" varStatus="d">
                                         <tbody>
                                             <tr>
                                                 <td class="shoping__cart__item">
@@ -93,26 +93,41 @@
                                                 <td class="shoping__cart__price">
                                                     ${c.orderDetailPriceProduct}$
                                                 </td>
-                                                <td>
+                                                <td class="shoping__cart__quantity">
                                                     <div class="quantity">
-                                                        <input name="orderDetailQuantity" type="reset" value="${c.orderDetailQuantity}">
+                                                        <div class="pro-qty">
+                                                            <input type="number" name="orderDetailQuantity" type="reset" value="${c.orderDetailQuantity}">
+                                                        </div>
                                                     </div>
                                                 </td>
-
+                                                <td class="align-middle">
+                                                    <a href="delete-cart?index=${d.index}"><button type="button" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i></button></a>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </c:forEach>
                                 </table>
                             </div>
                         </c:if>
+                           <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__btns">
+                        <a href="shop" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                        <button class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                            Upadate Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
                     </form>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-lg-12">
                     <c:if test="${sessionScope.lstCart.size() eq 0}">
-                      <h3>Oops! No products found. </h3>
-                                            <h3>GO SHOPPING FOR MORE KNOWLEDGE</h3>
+                        <h3>Oops! No products found. </h3>
+                        <h3>GO SHOPPING FOR MORE KNOWLEDGE</h3>
 
                     </c:if>
                 </div>
@@ -121,14 +136,16 @@
                         <div class="shoping__checkout">
                             <h5>Cart Total</h5>
                             <ul>
-                                <li>Total <span>${requestScope.totalPrice} $</span></li>
+                                <li>Total <span>${requestScope.totalPrice}$</span></li>
                             </ul>
                             <a href="checkout" class="primary-btn">PROCEED TO CHECKOUT</a>
                         </div>
                     </div>
                 </c:if>
             </div>
-        </div>//
+          
+         
+                   
     </section>
     <!-- Shoping Cart Section End -->
 

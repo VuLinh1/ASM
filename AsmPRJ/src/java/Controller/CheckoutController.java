@@ -6,10 +6,13 @@ package Controller;
 
 import dao.AccountContactDAO;
 import dao.GenreDAO;
+import dao.OrderDAO;
+import dao.OrderDetailDAO;
 import entity.Account;
 import entity.AccountContact;
 import entity.Cart;
 import entity.Genre;
+import entity.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -18,6 +21,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -72,9 +76,9 @@ public class CheckoutController extends HttpServlet {
         List<Cart> lstCart = (List<Cart>) session.getAttribute("lstCart");
         Account account = (Account) session.getAttribute("accountCur");
         AccountContactDAO accountContactDAO = new AccountContactDAO();
-        List<AccountContact> lstAccountContact = accountContactDAO.getAll(account.getAccountId());
-      
-        request.setAttribute("lstAccountContact", lstAccountContact);
+        AccountContact accountContact = accountContactDAO.getOne(account.getAccountId(), true);
+
+        request.setAttribute("accountContact", accountContact);
         int totalPrice = 0;
         for (Cart c : lstCart) {
             totalPrice += c.getOrderDetailPriceProduct() * c.getOrderDetailQuantity();
@@ -94,7 +98,25 @@ public class CheckoutController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        OrderDAO orderDAO = new OrderDAO();
+        OrderDetailDAO orderDetailDAO = new OrderDetailDAO();
+        Account account = (Account) session.getAttribute("accountCur");
+            List<Cart> lstCart = (List<Cart>) session.getAttribute("lstCart");
+        Order order = Order.builder()
+                .account(account)
+                .orderNameContact(request.getParameter("accountContactName"))
+                .orderPhoneContact(request.getParameter("accountContactMobile"))
+                .orderAddressContact(request.getParameter("accountContactAddress"))
+                .build();
+        int orderId = orderDAO.add(order);
+        for (Cart c : lstCart) {
+            orderDetailDAO.add(c, orderId);
+        }
+
+        lstCart = new ArrayList<>();
+        session.setAttribute("lstCart", lstCart);
+        response.sendRedirect("thank-you.jsp");
     }
 
     /**

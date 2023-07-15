@@ -82,12 +82,17 @@ public class loginController extends HttpServlet {
                     password = cookie.getValue();
                 }
             }
+            
             Account account = AccountDAO.authenticate(username, password);
             if (account != null) {
                 session.setAttribute("accountCur", account);
                 session.setAttribute("accountDetail", new AccountDetailDAO().getOne(account.getAccountId()));
-                  session.setAttribute("lstCart", new ArrayList<Cart>());
+                  session.setAttribute("lstCart", new ArrayList<Cart>());        
+                  if(account.getRole().getRoleName().equals("USER")) {
                 response.sendRedirect("home");
+            } else {
+                response.sendRedirect("admin.jsp");
+            }
                 return;
             }
         }

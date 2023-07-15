@@ -11,7 +11,6 @@
                 <th scope="col">Name Contact</th>
                 <th scope="col">Phone Contact</th>
                 <th scope="col">Order Date</th>
-                <th scope="col">View</th>
             </tr>
         </thead>
         <tbody>
@@ -20,7 +19,6 @@
               <td>Linhdeptrai</tda>
                 <td>082803734</td>
                 <td>2023-02-01</td>         
-                <td><a data-toggle="modal" data-target="#modal-order-detail" href="javascript:void(0)"><i class="fa-solid fa-eye"></i></a></td>
             </tr>
       
         </tbody>
